@@ -1,54 +1,58 @@
 {
-  "id": "packet_capture",
-  "name": "Network Packet Capture",
+  "author": "NetScout-Go",
   "description": "Captures and analyzes network traffic using tcpdump",
   "icon": "traffic",
+  "id": "packet_capture",
+  "license": "MIT",
+  "name": "Network Packet Capture",
   "parameters": [
     {
+      "default": "eth0",
+      "description": "The network interface to capture packets from",
       "id": "interface",
       "name": "Network Interface",
-      "description": "The network interface to capture packets from",
-      "type": "string",
       "required": true,
-      "default": "eth0"
+      "type": "string"
     },
     {
+      "default": "",
+      "description": "BPF filter expression to filter packets (e.g., 'port 80', 'host 192.168.1.1')",
       "id": "capture_filter",
       "name": "Capture Filter",
-      "description": "BPF filter expression to filter packets (e.g., 'port 80', 'host 192.168.1.1')",
-      "type": "string",
       "required": false,
-      "default": ""
+      "type": "string"
     },
     {
-      "id": "packet_count",
-      "name": "Packet Count",
-      "description": "Number of packets to capture (0 for unlimited)",
-      "type": "number",
-      "required": false,
       "default": 100,
-      "min": 0,
+      "description": "Number of packets to capture (0 for unlimited)",
+      "id": "packet_count",
       "max": 10000,
-      "step": 10
-    },
-    {
-      "id": "capture_timeout",
-      "name": "Capture Timeout",
-      "description": "Time in seconds to capture packets (0 for unlimited)",
-      "type": "number",
-      "required": false,
-      "default": 10,
       "min": 0,
-      "max": 300,
-      "step": 5
+      "name": "Packet Count",
+      "required": false,
+      "step": 10,
+      "type": "number"
     },
     {
+      "default": 10,
+      "description": "Time in seconds to capture packets (0 for unlimited)",
+      "id": "capture_timeout",
+      "max": 300,
+      "min": 0,
+      "name": "Capture Timeout",
+      "required": false,
+      "step": 5,
+      "type": "number"
+    },
+    {
+      "default": true,
+      "description": "Include packet headers in output",
       "id": "include_headers",
       "name": "Include Headers",
-      "description": "Include packet headers in output",
-      "type": "boolean",
       "required": false,
-      "default": true
+      "type": "boolean"
     }
-  ]
+  ],
+  "repository": "https://github.com/NetScout-Go/Plugin_packet_capture",
+  "version": "1.0.0"
 }
